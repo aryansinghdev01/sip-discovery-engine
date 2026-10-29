@@ -1,0 +1,13 @@
+# secrets
+.env
+.streamlit/secrets.toml
+
+# raw scrapes and LLM cache stay local (re-runnable from cache)
+data/raw/
+data/llm_cache.jsonl
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
