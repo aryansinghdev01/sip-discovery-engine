@@ -23,7 +23,8 @@ import pipeline
 GOLDEN_CSV = C.PROCESSED_DIR / "golden_30.csv"
 RECALL_CSV = C.PROCESSED_DIR / "recall_10.csv"
 RECALL_EXTRA_CSV = C.PROCESSED_DIR / "recall_20_extra.csv"
-RETEST_CSV = C.PROCESSED_DIR / "blind_retest_20.csv"
+RETEST_CSV = C.PROCESSED_DIR / "retest_20.csv"
+RETEST_MODEL = C.PROCESSED_DIR / "retest_model_records.json"
 MODEL_CSV = C.PROCESSED_DIR / "golden_model.csv"
 REPORT = C.PROCESSED_DIR / "validation.json"
 OPTIONAL_FIELDS = ["start_motivation", "checking_behaviour", "influenced_by", "money_source",
@@ -67,7 +68,7 @@ def extra():
 
 
 def retest():
-    """20 fresh kept-pool items for the blind post-revision score: seed 44, stratified,
+    """20 fresh kept-pool items for the post-revision agreement score: seed 44, stratified,
     excluding every labelled item and the 40 dev items the prompt was tuned on."""
     kept, _ = _pools()
     exclude = pipeline.labelled_ids() | {i["id"] for i in pipeline.dev_sample()}
@@ -125,43 +126,65 @@ def _upper_bound(k, n, alpha=0.05):
     return hi
 
 
+def run_retest():
+    """Model labels for retest_20 with the frozen (v2) prompts."""
+    pipeline.require_frozen()
+    ids = [r["id"] for r in _read(RETEST_CSV)]
+    by_id = {i["id"]: i for i in pipeline.load_items()}
+    records = pipeline.run_items([by_id[i] for i in ids])
+    missing = [i for i in ids if i not in records]
+    if missing:
+        sys.exit(f"no model result yet for {len(missing)} items (rate limit?); rerun to resume")
+    RETEST_MODEL.write_text(json.dumps([records[i] for i in ids], ensure_ascii=False, indent=1))
+    print(f"model labels written for {len(ids)} retest items; tokens: {dict(pipeline.TOKENS)}")
+
+
+def _compare(rows, model, with_category):
+    """is_sip_related agreement (and, optionally, primary_category agreement over
+    items both sides marked SIP-related), with every disagreement listed."""
+    dis, agree, n = [], 0, 0
+    for h in rows:
+        hy, m = _yes(h["is_sip_related"]), model[h["id"]]
+        if hy is None:
+            dis.append({"id": h["id"], "problem": f"unreadable human label {h['is_sip_related']!r}"})
+            continue
+        n += 1
+        if hy == m["is_sip_related"]:
+            agree += 1
+        else:
+            dis.append({"id": h["id"], "source": h["source"], "human": hy, "model": m["is_sip_related"],
+                        "model_category": m["primary_category"], "model_stage": m["stage"],
+                        "filter_reason": m.get("filter_reason"), "human_note": h.get("notes", ""),
+                        "text": pipeline._norm(h["raw_text"])[:200]})
+    out = {"is_sip_related": {"agree": agree, "n": n, "rate": agree / n if n else None,
+                              "disagreements": dis}}
+    if with_category:
+        both = [h for h in rows if _yes(h["is_sip_related"]) and model[h["id"]]["is_sip_related"]]
+        cat_dis = [{"id": h["id"], "source": h["source"], "human": h["primary_category"].strip(),
+                    "model": model[h["id"]]["primary_category"],
+                    "model_secondary": model[h["id"]].get("secondary_categories"),
+                    "model_confidence": model[h["id"]].get("confidence"),
+                    "human_note": h.get("notes", ""), "text": pipeline._norm(h["raw_text"])[:200]}
+                   for h in both if h["primary_category"].strip() != model[h["id"]]["primary_category"]]
+        human_bad = sorted({h["primary_category"].strip() for h in rows if h["primary_category"].strip()
+                            and h["primary_category"].strip() not in C.CATEGORIES})
+        out["primary_category"] = {
+            "agree": len(both) - len(cat_dis), "n": len(both),
+            "rate": (len(both) - len(cat_dis)) / len(both) if both else None,
+            "disagreements": cat_dis, "human_labels_outside_taxonomy": human_bad}
+    return out
+
+
 def score():
     model = {r["id"]: r for r in json.loads((C.PROCESSED_DIR / "golden_model_records.json").read_text())}
-    report = {}
-
-    for name, path in [("golden_30", GOLDEN_CSV), ("recall_10", RECALL_CSV)]:
-        rows, dis, agree, n = _read(path), [], 0, 0
-        for h in rows:
-            hy, m = _yes(h["is_sip_related"]), model[h["id"]]
-            if hy is None:
-                dis.append({"id": h["id"], "problem": f"unreadable human label {h['is_sip_related']!r}"})
-                continue
-            n += 1
-            if hy == m["is_sip_related"]:
-                agree += 1
-            else:
-                dis.append({"id": h["id"], "source": h["source"], "human": hy, "model": m["is_sip_related"],
-                            "model_category": m["primary_category"], "model_stage": m["stage"],
-                            "filter_reason": m.get("filter_reason"), "human_note": h.get("notes", ""),
-                            "text": pipeline._norm(h["raw_text"])[:200]})
-        report[name] = {"is_sip_related": {"agree": agree, "n": n, "rate": agree / n if n else None,
-                                           "disagreements": dis}}
-
-    # Category agreement on golden_30 items both sides marked SIP-related.
-    rows = _read(GOLDEN_CSV)
-    both = [h for h in rows if _yes(h["is_sip_related"]) and model[h["id"]]["is_sip_related"]]
-    cat_dis = [{"id": h["id"], "source": h["source"], "human": h["primary_category"].strip(),
-                "model": model[h["id"]]["primary_category"],
-                "model_secondary": model[h["id"]].get("secondary_categories"),
-                "model_confidence": model[h["id"]].get("confidence"),
-                "human_note": h.get("notes", ""), "text": pipeline._norm(h["raw_text"])[:200]}
-               for h in both if h["primary_category"].strip() != model[h["id"]]["primary_category"]]
-    human_bad = sorted({h["primary_category"].strip() for h in rows
-                        if h["primary_category"].strip() and h["primary_category"].strip() not in C.CATEGORIES})
-    report["golden_30"]["primary_category"] = {
-        "agree": len(both) - len(cat_dis), "n": len(both),
-        "rate": (len(both) - len(cat_dis)) / len(both) if both else None,
-        "disagreements": cat_dis, "human_labels_outside_taxonomy": human_bad}
+    report = {"golden_30": {"prompt": "v1", "labels": "blind result",
+                            **_compare(_read(GOLDEN_CSV), model, True)},
+              "recall_10": _compare(_read(RECALL_CSV), model, False)}
+    if RETEST_MODEL.exists():
+        retest_model = {r["id"]: r for r in json.loads(RETEST_MODEL.read_text())}
+        report["retest_20"] = {"prompt": "v2",
+                               "labels": "agreement after prompt revision",
+                               **_compare(_read(RETEST_CSV), retest_model, True)}
 
     # Keyword-filter leak: human-relevant items in the rejected pool.
     rec = _read(RECALL_CSV) + (_read(RECALL_EXTRA_CSV) if RECALL_EXTRA_CSV.exists() else [])
@@ -185,5 +208,6 @@ def score():
 
 
 if __name__ == "__main__":
-    {"export": export, "extra": extra, "retest": retest, "run": run, "score": score}[
+    {"export": export, "extra": extra, "retest": retest, "run": run, "run_retest": run_retest,
+     "score": score}[
         sys.argv[1] if len(sys.argv) > 1 else "export"]()

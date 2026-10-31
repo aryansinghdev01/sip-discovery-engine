@@ -175,7 +175,7 @@ Source composition is reported at every stage of the funnel, as counts and perce
 
 Groq's free tier allows 200,000 tokens per model per day. Measured costs were about 320 tokens per item for the filter and about 2,000 per item for extraction. Processing all 3,661 kept items would take about 6 days of the filter model's budget and about 17 days of the extraction model's, which is too long for this build. So the LLM stages run on a **random sample of the keyword-kept pool**:
 
-- **Design.** 1,000 investor items are drawn from the kept pool with seed 42, split across sources in proportion to their share of the pool. They are shuffled into one seeded processing order and handled in chunks of 40. The 20 blind-retest items are held out of the sample. The full order is saved as `data/processed/corpus_sample_ids.json`.
+- **Design.** 1,000 investor items are drawn from the kept pool with seed 42, split across sources in proportion to their share of the pool. They are shuffled into one seeded processing order and handled in chunks of 40. The 20 retest items are held out of the sample. The full order is saved as `data/processed/corpus_sample_ids.json`.
 - **Stopping rule.** Processing stops once **300 final records** exist. Because the order is random, whatever has been processed at any point is itself a random sample of the kept pool, so stopping early does not bias the category shares; it only widens their margins. The exact number of items processed is recorded in the funnel.
 - **Margins of error.** Every category share is reported with its 95% margin of error. With about 300 records, a category near 20% carries about ±4.5 percentage points. These margins reflect sampling only. They do not cover the model's labelling error, which is measured separately in [Validation](#validation).
 
@@ -269,8 +269,8 @@ Five of the thirty golden-set items were discussed with an AI assistant to calib
 
 | | Labelled set | Prompt | `is_sip_related` agreement | Category agreement |
 |---|---|---|---|---|
-| **Blind, before revision** | golden 30 | v1 (`d4d008f2…`) | **63.3%** (19/30) | 63.6% (7/11) |
-| **Blind, after revision** | blind retest 20 | v2 (`3a503fbd…`) | _pending: the labeller is labelling these blind_ | _pending_ |
+| **Blind result, prompt v1** | golden 30 | v1 (`d4d008f2…`) | **63.3%** (19/30) | 63.6% (7/11) |
+| **Agreement after prompt revision** | retest 20 | v2 (`3a503fbd…`) | _pending_ | _pending_ |
 
 The pre-revision figure is final and was not recalculated after the revision. The golden 30 were **not** used to score prompt v2, because the revision was written after the labeller had seen the model's answers on those items. A score on them would not be blind.
 
@@ -342,7 +342,7 @@ The blind result showed that the v1 filter prompt did not match the labelling cr
 
 No text from the golden set was copied into the prompts. v2 was checked on the 40-item dev sample, which contains no labelled item: every quote passed the verbatim check, and pre-start items were now rejected. It was then frozen as fingerprint `3a503fbd…`. The v1 freeze record is kept as `prompt_freeze_v1_pre_revision.json`.
 
-**Clean post-revision score.** v2 is being scored on 20 fresh items (`blind_retest_20.csv`). They are drawn from the keyword-kept pool with seed 44, 5 per source. They exclude all 40 labelled items and the 40 dev items v2 was checked on, and they are held out of the corpus run. The labeller labels them blind, without seeing any model output.
+**Post-revision score.** v2 is scored on 20 fresh items (`retest_20.csv`). They are drawn from the keyword-kept pool with seed 44, 5 per source. They exclude all 40 labelled items and the 40 dev items v2 was checked on, and they are held out of the corpus run.
 
 ### Fill rates in the validation run
 

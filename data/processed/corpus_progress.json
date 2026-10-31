@@ -1,14 +1,14 @@
 {
- "processed": 680,
- "final_records": 169,
+ "processed": 720,
+ "final_records": 177,
  "target": 300,
  "tokens": {
-  "openai/gpt-oss-20b": 235606,
-  "openai/gpt-oss-20b:calls": 74,
+  "openai/gpt-oss-20b": 249391,
+  "openai/gpt-oss-20b:calls": 78,
   "openai/gpt-oss-20b:cached": 4608,
-  "openai/gpt-oss-120b": 515183,
-  "openai/gpt-oss-120b:calls": 241,
-  "openai/gpt-oss-120b:cached": 107520
+  "openai/gpt-oss-120b": 539468,
+  "openai/gpt-oss-120b:calls": 252,
+  "openai/gpt-oss-120b:cached": 117760
  },
- "updated": "2026-10-31 22:17"
+ "updated": "2026-10-31 22:46"
 }

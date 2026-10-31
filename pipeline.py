@@ -456,7 +456,7 @@ def run_items(items):
 
 
 # --- Commands -----------------------------------------------------------------------
-LABEL_FILES = ["golden_30.csv", "recall_10.csv", "recall_20_extra.csv", "blind_retest_20.csv"]
+LABEL_FILES = ["golden_30.csv", "recall_10.csv", "recall_20_extra.csv", "retest_20.csv"]
 
 
 def labelled_ids(files=LABEL_FILES):
@@ -545,7 +545,7 @@ def run_corpus():
     CORPUS_TARGET_RECORDS final records exist, so whatever has been processed
     is itself a random sample. Resumable: cached items cost nothing on rerun."""
     require_frozen()
-    held_out = labelled_ids(["blind_retest_20.csv"])  # kept blind for the retest
+    held_out = labelled_ids(["retest_20.csv"])  # held out for the retest
     pool = [i for i in investor_kept() if i["id"] not in held_out]
     order = proportional_sample(pool, C.CORPUS_MAX, C.SEED)
     SAMPLE_IDS.write_text(json.dumps([i["id"] for i in order]))
