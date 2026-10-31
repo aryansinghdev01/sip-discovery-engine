@@ -70,6 +70,9 @@ st.markdown(
     "Structured evidence from public feedback (Google Play, App Store, YouTube, TradingQ&A), "
     "every record tied to a verbatim quote."
 )
+b1, b2, _ = st.columns([2, 1, 3])
+b1.link_button("📄 Evidence log: sources, validation, limitations", LOG, type="primary", width="stretch")
+b2.link_button("Code on GitHub", REPO, width="stretch")
 if progress and progress.get("final_records", 0) < progress.get("target", 0) and \
         progress.get("processed", 0) < C.CORPUS_MAX:
     st.warning(f"Interim data: the corpus run is still in progress "

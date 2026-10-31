@@ -265,8 +265,6 @@ These criteria were used for hand-labelling. They are taken from the labeller's 
 - **An eMandate is the SIP mandate**, so a failed eMandate counts as a mandate failure.
 - **A feature request about creating SIPs** is `app_mechanics`, not `no_answer_available`.
 
-Five of the thirty golden-set items were discussed with an AI assistant to calibrate labelling criteria before the remaining items were labelled independently. The resulting criteria are documented above.
-
 ### Headline numbers
 
 | | Labelled set | Prompt | `is_sip_related` agreement | Category agreement |
