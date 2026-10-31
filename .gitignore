@@ -11,3 +11,6 @@ __pycache__/
 *.pyc
 .venv/
 .DS_Store
+
+# long-running corpus log
+data/corpus_run.log

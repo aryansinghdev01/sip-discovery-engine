@@ -1,0 +1,41 @@
+id,stage,is_sip_related,primary_category,secondary_categories,lifecycle_stage,stoppage_type,went_outside_app,confidence,quote_match,evidence_quote,filter_reason,flags,start_motivation,checking_behaviour,influenced_by,money_source,segment_age_stated,segment_income_stated
+play:aee73327-4423-4b3d-b848-23827030d2b4,llm_rejected,False,not_relevant,,,,,,,,"App UI issue, not SIP specific",,,,,,,
+play:22424b72-6b00-436b-849a-5882d3a2e004,extracted,True,mandate_payment_failure,fees_trust,starting,involuntary,no,0.95,exact,Its eMandate system is totally worthless.,"eMandate system worthless, SIP instalment issue",,unknown,,unknown,unknown,unknown,unknown
+play:079f438d-a567-40c0-92a2-e705c3f1cfff,llm_rejected,False,not_relevant,,,,,,,,No SIP lifecycle mention,,,,,,,
+play:cbdbe782-920b-4c81-a440-499d5ab9b938,llm_rejected,False,not_relevant,,,,,,,,"Missing data, not SIP problem",,,,,,,
+play:4f65b22d-041d-4805-abcc-8298da90a324,llm_rejected,False,not_relevant,,,,,,,,"NAV issue, not SIP",,,,,,,
+play:47b96ce4-41e2-4d78-9508-841b214d1d3b,llm_rejected,False,not_relevant,,,,,,,,"NAV missing, not SIP",,,,,,,
+play:4122adf9-6155-4340-ac15-6dc7ef30372a,extracted,True,mandate_payment_failure,fees_trust,ongoing,involuntary,no,0.97,exact,"THEY WILL NOT INVEST FULL AMOUNT , AMOUNT DEDUCTED FROM YOUR BANK ACCOUNT WILL BE MUCH HIGHER THAN AMOUNT INVESTED",Daily SIP on Paytm problematic,,unknown,,unknown,unknown,unknown,unknown
+appstore:12383881992,extracted,True,app_mechanics,,ongoing,involuntary,no,0.9,exact,The manage SIP segment is mostly not showing which caused missing multiple SIPs.,Missed SIP payments due to app,,unknown,,unknown,unknown,unknown,unknown
+appstore:12019373475,extracted,True,mandate_payment_failure,,ongoing,involuntary,no,0.97,exact,SIP payment via upi app is not happening. Since December 2024 the SIP payment using UPI are not happening. Always some error is shown,SIP UPI payments failing,,unknown,,unknown,unknown,unknown,unknown
+appstore:6428060602,extracted,True,app_mechanics,,starting,not_applicable,no,0.95,exact,"Application is not opening after mandate reg. Application has been frozen after registration couple of times , we need to uninstall and reopen .",Mandate registration app crash,,unknown,,unknown,unknown,unknown,unknown
+appstore:11798593028,llm_rejected,False,not_relevant,,,,,,,,"App UI issues, no SIP mention.",,,,,,,
+appstore:7842765359,llm_rejected,False,not_relevant,,,,,,,,"Holdings sync error, no SIP.",,,,,,,
+appstore:14137979258,llm_rejected,False,not_relevant,,,,,,,,"Mutual fund sync issue, no SIP.",,,,,,,
+appstore:10651675271,llm_rejected,False,not_relevant,,,,,,,,"Feature lacking, no SIP.",,,,,,,
+youtube:Ugw9OqWJ26fi-p1nYVF4AaABAg,llm_rejected,False,not_relevant,,,,,,,,"Comment on others, no personal SIP.",,,,,,,
+youtube:UgwabLyZ15enPpAC3pN4AaABAg,extracted,True,app_mechanics,,starting,not_applicable,no,0.85,exact,Step up kaise hoga isme,Question about step-up in SIP.,,unknown,,unknown,unknown,unknown,unknown
+youtube:UgxT37Yl-OBGO9ZnYu14AaABAg,extracted,True,no_answer_available,,starting,not_applicable,no,0.4,exact,Ab mai bhi krunga sip😊 thanks sir,Intention to start SIP.,,unknown,,unknown,unknown,unknown,unknown
+youtube:Ugx_PuHrvDosEt7QRzx4AaABAg,extracted,True,no_answer_available,,unclear,not_applicable,unclear,0.9,exact,Sip matlab,Question about SIP definition.,,unknown,,unknown,unknown,unknown,unknown
+youtube:UgzJ-H2ywups0ggRRNN4AaABAg.AcXjDv_l761AcXlSZuCkBS,extracted,True,no_answer_available,,starting,not_applicable,no,0.95,exact,SIP Kaise Start Kare,Question about starting SIP.,,unknown,,unknown,unknown,unknown,unknown
+youtube:Ugw7rXydV5GXHlPwoN14AaABAg.AZqw8qMlJd_AZrNjVAgIw-,extracted,True,no_answer_available,,unclear,not_applicable,unclear,0.85,exact,Whats your present XIRR ?,Question about SIP returns.,,unknown,,unknown,unknown,unknown,unknown
+youtube:UgzduUcWSlwE6lFecgZ4AaABAg,llm_rejected,False,not_relevant,,,,,,,,"Tax on redemption, not SIP lifecycle.",,,,,,,
+youtube:UgxIXER-j1osChzllNx4AaABAg,extracted,True,no_answer_available,,starting,not_applicable,unclear,0.9,exact,Jharkhand gramin Bank ka mutual fund SIP bataiye,Question about starting a SIP.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:92442,extracted,True,app_mechanics,no_answer_available,starting,not_applicable,no,0.9,exact,Can I able to check my COIN SIP into my SBI MF platform or not?,SIP management and variable amounts.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:482749,extracted,True,app_mechanics,,starting,not_applicable,no,0.96,failed,"This used to be wrong… I got it fixed in ticket number 20240916660957 Click Confirm. Then it shows 'Pending Payment ₹1,000.00 SIP Created Successfully...'. Click pay now. Now the payment amount is 5000.",SIP amount mismatch bug.,quote_not_verbatim,unknown,,unknown,unknown,unknown,unknown
+tradingqna:34838,extracted,True,app_mechanics,,starting,not_applicable,no,0.95,whitespace,I have a question regarding from where the funds for the MFs are going to be debited. Usually with a distributor I have a ECS Mandate and the debit would happen from my Bank Account. On the basis of SIP dates. How is the same going to happen in COIN? Via my Kite Funds or Bank Account?,Debits source for SIP.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:511079,extracted,True,app_mechanics,,ongoing,not_applicable,no,0.95,exact,"I would really like a SIP portfolio like feature in Coin, where I can define a percentage to a mutual fund in the SIP.",SIP portfolio feature request.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:381928,extracted,True,app_mechanics,,starting,not_applicable,yes,0.96,exact,Can i Please Know How Many Number of Amc sips should be Done in Order to Cancel/pause The Sip after 4 months,Pausing/canceling short-term SIP.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:104290,extracted,True,no_answer_available,,stopped,involuntary,no,0.9,exact,But then why my SIP order from zerodha got cancelled ?,SIP cancellation query.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:30090,extracted,True,app_mechanics,,stopping,voluntary,unclear,0.95,exact,"What you can also do is update your Active SIP in the 36th month, that is at the end of the 3 year duration. You have an ‘edit’ option for this.",Extending SIP after completion.,,unknown,,unknown,unknown,unknown,unknown
+tradingqna:487518,llm_rejected,False,not_relevant,,,,,,,,Feature request unrelated to SIP.,,,,,,,
+play:36f80ef4-ffbf-40f8-b884-ca21ab1939ee,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+play:0c63e087-14a1-4088-9351-aa52d53c4de4,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+play:87fbbc36-59ec-4003-b040-41b10d10a15d,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+appstore:13481211789,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+appstore:13405825757,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+youtube:UgwmgAaa7XLA1db9pal4AaABAg,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+youtube:UgzmCtZbV4RxwhC3vNR4AaABAg.A_A-0h_zPmyA_KCItmgeVG,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+youtube:Ugwac-lDXMu9IXcWvod4AaABAg.9LMa58bz-Y8AXWaqxiVr_S,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+tradingqna:521263,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,
+tradingqna:543589,llm_rejected,False,not_relevant,,,,,,,,No SIP mention,,,,,,,

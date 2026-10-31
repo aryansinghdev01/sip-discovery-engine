@@ -1,0 +1,11 @@
+beautifulsoup4==4.15.0
+google-play-scraper==1.2.7
+groq==1.7.0
+pandas==3.1.0
+praw==8.0.3
+python-dotenv==1.2.4
+requests==2.34.2
+scikit-learn==1.9.1
+streamlit==1.66.1
+youtube-comment-downloader==0.1.84
+yt-dlp==2026.10.26

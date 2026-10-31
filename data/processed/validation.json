@@ -1,0 +1,236 @@
+{
+ "golden_30": {
+  "is_sip_related": {
+   "agree": 19,
+   "n": 30,
+   "rate": 0.6333333333333333,
+   "disagreements": [
+    {
+     "id": "play:47b96ce4-41e2-4d78-9508-841b214d1d3b",
+     "source": "play",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "llm_rejected",
+     "filter_reason": "NAV missing, not SIP",
+     "human_note": "",
+     "text": "Pathetic service. They don't give NAV of current date even when you make payment before the cut off time."
+    },
+    {
+     "id": "appstore:14137979258",
+     "source": "appstore",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "llm_rejected",
+     "filter_reason": "Mutual fund sync issue, no SIP.",
+     "human_note": "",
+     "text": "Mutual Fund Sync Broken Since Feb 2026 – No Resolution Yet. I have been using Kuvera for a long time, but since February 2026, mutual fund synchronization/import has completely stopped working for me."
+    },
+    {
+     "id": "youtube:Ugw9OqWJ26fi-p1nYVF4AaABAg",
+     "source": "youtube",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "llm_rejected",
+     "filter_reason": "Comment on others, no personal SIP.",
+     "human_note": "commentary rather than personal experience, but squarely about continuing SIPs with poor returns",
+     "text": "This is a classic example of Twist the Narrative & brainwash Small Retail Investors to Continue they're SIPs , Without Any returns whatsoever, By these big shot Diggaj's 😂"
+    },
+    {
+     "id": "youtube:UgwabLyZ15enPpAC3pN4AaABAg",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "app_mechanics",
+     "model_stage": "extracted",
+     "filter_reason": "Question about step-up in SIP.",
+     "human_note": "",
+     "text": "Step up kaise hoga isme"
+    },
+    {
+     "id": "youtube:UgxT37Yl-OBGO9ZnYu14AaABAg",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "Intention to start SIP.",
+     "human_note": "enthusiasm, not a question or a problem",
+     "text": "Ab mai bhi krunga sip😊 thanks sir"
+    },
+    {
+     "id": "youtube:Ugx_PuHrvDosEt7QRzx4AaABAg",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "Question about SIP definition.",
+     "human_note": "\tpre-start beginner question — no SIP held, no failure described",
+     "text": "Sip matlab"
+    },
+    {
+     "id": "youtube:UgzJ-H2ywups0ggRRNN4AaABAg.AcXjDv_l761AcXlSZuCkBS",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "Question about starting SIP.",
+     "human_note": "\tpre-start beginner question — no SIP held, no failure described",
+     "text": "SIP Kaise Start Kare"
+    },
+    {
+     "id": "youtube:Ugw7rXydV5GXHlPwoN14AaABAg.AZqw8qMlJd_AZrNjVAgIw-",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "Question about SIP returns.",
+     "human_note": "",
+     "text": "Whats your present XIRR ?"
+    },
+    {
+     "id": "youtube:UgxIXER-j1osChzllNx4AaABAg",
+     "source": "youtube",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "Question about starting a SIP.",
+     "human_note": "",
+     "text": "Jharkhand gramin Bank ka mutual fund SIP bataiye"
+    },
+    {
+     "id": "tradingqna:92442",
+     "source": "tradingqna",
+     "human": false,
+     "model": true,
+     "model_category": "app_mechanics",
+     "model_stage": "extracted",
+     "filter_reason": "SIP management and variable amounts.",
+     "human_note": "",
+     "text": "Hi , Please clarify my doubts on below:- what is the difference between “SBI Blue Chip Fund - Direct Plan - Growth” and “SBI Blue Chip Fund - Direct Plan - Dividend” ? As I am already investing 2500 i"
+    },
+    {
+     "id": "tradingqna:487518",
+     "source": "tradingqna",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "llm_rejected",
+     "filter_reason": "Feature request unrelated to SIP.",
+     "human_note": "",
+     "text": "1 feature request - Is it possible to bring in XIRR calculator for F&O position?"
+    }
+   ]
+  },
+  "primary_category": {
+   "agree": 7,
+   "n": 11,
+   "rate": 0.6363636363636364,
+   "disagreements": [
+    {
+     "id": "play:4122adf9-6155-4340-ac15-6dc7ef30372a",
+     "source": "play",
+     "human": "fees_trust",
+     "model": "mandate_payment_failure",
+     "model_secondary": [
+      "fees_trust"
+     ],
+     "model_confidence": 0.97,
+     "human_note": "",
+     "text": "SCAM ALERT..DO NOT START DAILY SIP ON PAYTM , THEY WILL NOT INVEST FULL AMOUNT , AMOUNT DEDUCTED FROM YOUR BANK ACCOUNT WILL BE MUCH HIGHER THAN AMOUNT INVESTED..I GAVE THEM PROOF BUT NO CUSTOMER SUPP"
+    },
+    {
+     "id": "appstore:12019373475",
+     "source": "appstore",
+     "human": "app_mechanics",
+     "model": "mandate_payment_failure",
+     "model_secondary": [],
+     "model_confidence": 0.97,
+     "human_note": "",
+     "text": "SIP payment via upi app is not happening. Since December 2024 the SIP payment using UPI are not happening. Always some error is shown"
+    },
+    {
+     "id": "tradingqna:381928",
+     "source": "tradingqna",
+     "human": "no_answer_available",
+     "model": "app_mechanics",
+     "model_secondary": [],
+     "model_confidence": 0.96,
+     "human_note": "can't find the cancellation rules — nothing about returns",
+     "text": "I’m Willing to Do a Small Sip for Next 4 Months in ICICI Pru Tech or Tata Digital Ind Fund I’m seeing AMC Sip’s Minimum amount is 100/150rs Can i Please Know How Many Number of Amc sips should be Done"
+    },
+    {
+     "id": "tradingqna:30090",
+     "source": "tradingqna",
+     "human": "no_answer_available",
+     "model": "app_mechanics",
+     "model_secondary": [],
+     "model_confidence": 0.95,
+     "human_note": "",
+     "text": "Hello, Once all the installments in your MF are complete, you can re-enter the same MF at a future date. It will hold the same folio number that it had under you when you purchased it for the first ti"
+    }
+   ],
+   "human_labels_outside_taxonomy": []
+  }
+ },
+ "recall_10": {
+  "is_sip_related": {
+   "agree": 10,
+   "n": 10,
+   "rate": 1.0,
+   "disagreements": []
+  }
+ },
+ "filter_leak": {
+  "relevant": 0,
+  "n": 10,
+  "upper_bound_95": 0.2588655508930523
+ },
+ "quotes": {
+  "exact": 16,
+  "failed": 1,
+  "whitespace": 1
+ },
+ "invalid_categories": 0,
+ "other_flags": {
+  "quote_not_verbatim": 1
+ },
+ "fill_rates": {
+  "n": 18,
+  "start_motivation": 0,
+  "checking_behaviour": 0,
+  "influenced_by": 0,
+  "money_source": 0,
+  "segment_age_stated": 0,
+  "segment_income_stated": 0
+ },
+ "human_notes": {
+  "play:22424b72-6b00-436b-849a-5882d3a2e004": "eMandate is the SIP mandate — vague, but the only mandate-failure candidate in the set",
+  "play:cbdbe782-920b-4c81-a440-499d5ab9b938": "feature wishlist about portfolio display, not about the SIP — consistent with rows 12 and 15",
+  "appstore:12383881992": "app screen failure caused the missed payments — cause not symptom",
+  "appstore:10651675271": "no SIP mentioned; portfolio feature wishlist — consistent with rows 5 and 12",
+  "youtube:Ugw9OqWJ26fi-p1nYVF4AaABAg": "commentary rather than personal experience, but squarely about continuing SIPs with poor returns",
+  "youtube:UgxT37Yl-OBGO9ZnYu14AaABAg": "enthusiasm, not a question or a problem",
+  "youtube:Ugx_PuHrvDosEt7QRzx4AaABAg": "\tpre-start beginner question — no SIP held, no failure described",
+  "youtube:UgzJ-H2ywups0ggRRNN4AaABAg.AcXjDv_l761AcXlSZuCkBS": "\tpre-start beginner question — no SIP held, no failure described",
+  "youtube:UgzduUcWSlwE6lFecgZ4AaABAg": "tax question, not SIP continuation",
+  "tradingqna:511079": "feature request about SIP creation, not an unanswered question",
+  "tradingqna:381928": "can't find the cancellation rules — nothing about returns",
+  "play:36f80ef4-ffbf-40f8-b884-ca21ab1939ee": "no content",
+  "play:0c63e087-14a1-4088-9351-aa52d53c4de4": "off-topic — no SIP mentioned, general app praise",
+  "play:87fbbc36-59ec-4003-b040-41b10d10a15d": "no content",
+  "appstore:13481211789": "off-topic — portfolio display bug, not about a SIP",
+  "appstore:13405825757": "off-topic — portfolio display bug, not about a SIP",
+  "youtube:UgwmgAaa7XLA1db9pal4AaABAg": "\toff-topic — fund recommendation request, not a SIP problem",
+  "youtube:UgzmCtZbV4RxwhC3vNR4AaABAg.A_A-0h_zPmyA_KCItmgeVG": "not a user — company support auto-reply",
+  "youtube:Ugwac-lDXMu9IXcWvod4AaABAg.9LMa58bz-Y8AXWaqxiVr_S": "off-topic — unrelated argument",
+  "tradingqna:521263": "off-topic — US stocks and tax, not Indian MF SIPs",
+  "tradingqna:543589": "off-topic — US stocks thread"
+ }
+}

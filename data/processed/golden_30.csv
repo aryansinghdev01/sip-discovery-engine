@@ -1,0 +1,87 @@
+id,source,url,raw_text,is_sip_related,primary_category,notes
+play:aee73327-4423-4b3d-b848-23827030d2b4,play,https://play.google.com/store/apps/details?id=com.gooogle.android.kuvera.app&reviewId=aee73327-4423-4b3d-b848-23827030d2b4,I loved old app version new version is worst. I have used many many apps earlier for mutual fund but found that KUVERA as best all of them. Now I am disappointed with new app version and looking to use another app for my portfolio and SIP.,No,not_relevant,
+play:22424b72-6b00-436b-849a-5882d3a2e004,play,https://play.google.com/store/apps/details?id=com.zerodha.coin&reviewId=22424b72-6b00-436b-849a-5882d3a2e004,Worst mutual funds investment platform. Its eMandate system is totally worthless. Can't believe Zerodha is such big name and this is the platform service. Totally wasted my time and money. Be aware!,Yes ,mandate_payment_failure,"eMandate is the SIP mandate — vague, but the only mandate-failure candidate in the set"
+play:079f438d-a567-40c0-92a2-e705c3f1cfff,play,https://play.google.com/store/apps/details?id=com.paytmmoney&reviewId=079f438d-a567-40c0-92a2-e705c3f1cfff,good app and good sip fund,No,not_relevant,
+play:cbdbe782-920b-4c81-a440-499d5ab9b938,play,https://play.google.com/store/apps/details?id=com.zerodha.coin&reviewId=cbdbe782-920b-4c81-a440-499d5ab9b938,Application is good user friendly performance is also good but the problem is lack of information. App misses out major information like daily change data or folio number xirr is not shown properly when ot was invested date is also not shown. I hope this data parameters will be shown properly in the upcoming updates. An inbuilt sip or lumpsum calculator could be a better approach to the user,No,not_relevant,"feature wishlist about portfolio display, not about the SIP — consistent with rows 12 and 15"
+play:4f65b22d-041d-4805-abcc-8298da90a324,play,https://play.google.com/store/apps/details?id=com.zerodha.coin&reviewId=4f65b22d-041d-4805-abcc-8298da90a324,NAV charge develope. end to end not worthy... Money nav value is not for full,No,not_relevant,
+play:47b96ce4-41e2-4d78-9508-841b214d1d3b,play,https://play.google.com/store/apps/details?id=com.zerodha.coin&reviewId=47b96ce4-41e2-4d78-9508-841b214d1d3b,Pathetic service. They don't give NAV of current date even when you make payment before the cut off time.,Yes ,app_mechanics,
+play:4122adf9-6155-4340-ac15-6dc7ef30372a,play,https://play.google.com/store/apps/details?id=com.paytmmoney&reviewId=4122adf9-6155-4340-ac15-6dc7ef30372a,"SCAM ALERT..DO NOT START DAILY SIP ON PAYTM , THEY WILL NOT INVEST FULL AMOUNT , AMOUNT DEDUCTED FROM YOUR BANK ACCOUNT WILL BE MUCH HIGHER THAN AMOUNT INVESTED..I GAVE THEM PROOF BUT NO CUSTOMER SUPPORT IS THERE. BETTER TO DO MONTHLY SIP ON OTHER PLATFORM",Yes ,fees_trust,
+appstore:12383881992,appstore,https://apps.apple.com/in/app/id1344431352?see-all=reviews,Pathetic app. Customer service does not respond.. Have missed out on multiple payments due to this app. The manage SIP segment is mostly not showing which caused missing multiple SIPs.,Yes ,app_mechanics,app screen failure caused the missed payments — cause not symptom
+appstore:12019373475,appstore,https://apps.apple.com/in/app/id1392892554?see-all=reviews,SIP payment via upi app is not happening. Since December 2024 the SIP payment using UPI are not happening. Always some error is shown,Yes ,app_mechanics,
+appstore:6428060602,appstore,https://apps.apple.com/in/app/id1329701793?see-all=reviews,"Application is not opening after mandate reg. Application has been frozen after registration couple of times , we need to uninstall and reopen . Poor support",Yes ,app_mechanics,
+appstore:11798593028,appstore,https://apps.apple.com/in/app/id1392892554?see-all=reviews,"Coin is a Subpar app. Way below in terms of user interface when compared to competition. No basic features like daily percentage change, fund wise xirr, portfolio analysis etc. Even the updation of daily positions happens very late. Zerodha has least interest in doing anything for this app since there is no income generation on coin app. Disappointing…",No,not_relevant,
+appstore:7842765359,appstore,https://apps.apple.com/in/app/id1392892554?see-all=reviews,"Every time I open this app, I see a error message. Holdings: Request failed(kitetrade-common).
+
+This is the 1st error I see every time I open the app. Not a one-off instance. Every time. For last so many months. I used to think 1 API call must have failed, but this cannot be the case every single time. You need to check your logs for this failing API. 
+
+T bills and Govt Bonds are not listed. Otherwise plain simple app, gets the job done.",No,not_relevant,
+appstore:14137979258,appstore,https://apps.apple.com/in/app/id1329701793?see-all=reviews,"Mutual Fund Sync Broken Since Feb 2026 – No Resolution Yet. I have been using Kuvera for a long time, but since February 2026, mutual fund synchronization/import has completely stopped working for me. Earlier it was working fine, but for the last several months I have been unable to refresh or import the latest mutual fund updates.
+
+The app only shows “Mutual fund sync temporarily paused” and there has been no resolution. I have sent multiple emails to customer support, but the responses have been generic and unhelpful. It feels like the support team either does not understand the issue or does not have enough technical knowledge to resolve it. I still haven’t received a clear explanation or timeline for a fix.
+
+Very disappointing experience for an investment platform where accurate and up-to-date portfolio tracking is essential.",Yes ,app_mechanics,
+appstore:10651675271,appstore,https://apps.apple.com/in/app/id1392892554?see-all=reviews,"FEATURE-LACKED APP. No XIRR, No Overlapping/Comparison with a MF and one’s holdings! And many other features which are already in PayTM Money, Groww, etc.",No,not_relevant,no SIP mentioned; portfolio feature wishlist — consistent with rows 5 and 12
+youtube:Ugw9OqWJ26fi-p1nYVF4AaABAg,youtube,https://www.youtube.com/watch?v=9Qeza4wMuxg&lc=Ugw9OqWJ26fi-p1nYVF4AaABAg,"This is a classic example of Twist the Narrative & brainwash Small Retail Investors to Continue they're SIPs , Without Any returns whatsoever, By these big shot Diggaj's  😂",Yes ,expectation_returns_mismatch,"commentary rather than personal experience, but squarely about continuing SIPs with poor returns"
+youtube:UgwabLyZ15enPpAC3pN4AaABAg,youtube,https://www.youtube.com/watch?v=7pJdibIhNCQ&lc=UgwabLyZ15enPpAC3pN4AaABAg,Step up kaise hoga isme,No,not_relevant,
+youtube:UgxT37Yl-OBGO9ZnYu14AaABAg,youtube,https://www.youtube.com/watch?v=rAqzpRZa78E&lc=UgxT37Yl-OBGO9ZnYu14AaABAg,Ab mai bhi krunga sip😊 thanks sir,No,not_relevant,"enthusiasm, not a question or a problem"
+youtube:Ugx_PuHrvDosEt7QRzx4AaABAg,youtube,https://www.youtube.com/watch?v=KLczKcwziZs&lc=Ugx_PuHrvDosEt7QRzx4AaABAg,Sip matlab,No,not_relevant,"	pre-start beginner question — no SIP held, no failure described"
+youtube:UgzJ-H2ywups0ggRRNN4AaABAg.AcXjDv_l761AcXlSZuCkBS,youtube,https://www.youtube.com/watch?v=FtH4jqPPxvY&lc=UgzJ-H2ywups0ggRRNN4AaABAg.AcXjDv_l761AcXlSZuCkBS,SIP Kaise Start Kare,No,not_relevant,"	pre-start beginner question — no SIP held, no failure described"
+youtube:Ugw7rXydV5GXHlPwoN14AaABAg.AZqw8qMlJd_AZrNjVAgIw-,youtube,https://www.youtube.com/watch?v=WTWZNE4epQc&lc=Ugw7rXydV5GXHlPwoN14AaABAg.AZqw8qMlJd_AZrNjVAgIw-,Whats your present XIRR ?,No,not_relevant,
+youtube:UgzduUcWSlwE6lFecgZ4AaABAg,youtube,https://www.youtube.com/watch?v=CPEatoLkXNI&lc=UgzduUcWSlwE6lFecgZ4AaABAg,sir mutual fund redeem karte samay tax kaise katega.. use khud bharna parta hai ya apne cut hoke account me ata haai?,No,not_relevant,"tax question, not SIP continuation"
+youtube:UgxIXER-j1osChzllNx4AaABAg,youtube,https://www.youtube.com/watch?v=_k1cz7sSuc4&lc=UgxIXER-j1osChzllNx4AaABAg,Jharkhand gramin Bank ka mutual fund SIP bataiye,No,not_relevant,
+tradingqna:92442,tradingqna,https://tradingqna.com/t/buy-sip-on-coin-platform-q-a-for-sip/32492/1,"Hi , 
+Please clarify my doubts on below:- 
+ 
+ what is the difference between “SBI Blue Chip Fund - Direct Plan - Growth” and “SBI Blue Chip Fund - Direct Plan - Dividend” ? 
+ As I am already investing 2500 in SBI BLUE CHIP from SBI MF platform, and Suppose I took 2500 SIP in SBI BLUE CHIP from COIN, so both will treat in same manner  or not ? 
+ Can I able to check my COIN SIP into my SBI MF platform or not? 
+ Can I took SIP based on my monthly saving ? Like Suppose I took SBI BLUE CHIP from COIN which having starting amount 5000 and from next month may i invest in same as below :- 
+1st Month -> 5000 INR 
+2nd Month -> 2500 INR 
+3rd Month -> 1000 INR 
+4th Month -> 10000 INR  etc 
+ 
+ Please reply me with updated information . 
+Thanks",No,not_relevant,
+tradingqna:482749,tradingqna,https://tradingqna.com/t/bug-coin-new-sip-amount-is-wrong-in-payment-popup/177962/1,"What is happening now is: 
+ 
+ Choose quant active fund new SIP. Initial amount shown = 5000, SIP shown = 1000 in the SIP popup. 
+ Click Create SIP. It shows “You are creating a monthly SIP for ₹1,000.0 in Quant Liquid Fund indefinitely.” THIS is correct. (This used to be wrong… I got it fixed in ticket number  20240916660957 
+ Click Confirm. Then it shows ""Pending Payment ₹1,000.00 SIP Created Successfully. Please complete the payment to place the initial investment order.  this is INcorrect now… 
+ Click pay now. Now the payment amount is 5000. 
+ 
+ Thanks CC  @Neelesh   @ShubhS9",Yes ,app_mechanics,
+tradingqna:34838,tradingqna,https://tradingqna.com/t/why-invest-in-direct-mutual-funds-on-coin/11738/4,"Thanks Team for this great initiative. 
+I have a question regarding from where the funds for the MFs are going to be debited. 
+Usually with a distributor I have a ECS Mandate and the debit would happen from my Bank Account. On the basis of SIP dates. How is the same going to happen in COIN? Via my Kite Funds or Bank Account?",Yes ,app_mechanics,
+tradingqna:511079,tradingqna,https://tradingqna.com/t/feature-request-coin-sip-portfolio/188578/1,"Hi, 
+ I would really like a SIP portfolio like feature in Coin, where I can define a percentage to a mutual fund in the SIP. 
+ For example, Portfolio 
+Fund A : 25% 
+Fund B : 50% 
+Fund C : 25% 
+ Based on the amount in the SIP, it should create SIP orders monthly. 
+This would help if I wanted to increase percentage for some fund, or decrease it etc. 
+ Also, when I do step up of my SIP, it would be easier for me to just change the amount, rather than calculating and changing the amount for each fund. 
+ Thanks, 
+Arvind",Yes ,app_mechanics,"feature request about SIP creation, not an unanswered question"
+tradingqna:381928,tradingqna,https://tradingqna.com/t/amc-sip-minimum-time/139340/1,"I’m Willing to Do a Small Sip for Next 4 Months in ICICI Pru Tech or Tata Digital Ind Fund 
+I’m seeing AMC Sip’s Minimum amount is 100/150rs 
+Can i Please Know How Many Number of Amc sips should be Done in Order to Cancel/pause The Sip after 4 months 
+And I’m finding On Amc website That sip can be Done Weekly,Monthly too 
+Why Aren’t Zerodha’s Weekly Amc Sip’s Allowed?",Yes ,no_answer_available,can't find the cancellation rules — nothing about returns
+tradingqna:104290,tradingqna,https://tradingqna.com/t/reliance-mutual-fund-to-suspend-fresh-subscriptions-in-small-cap-fund/35956/3,But then why my SIP order from zerodha got cancelled ?,Yes ,no_answer_available,
+tradingqna:30090,tradingqna,https://tradingqna.com/t/if-i-am-doing-sip-for-3-year-and-after-complition-of-3-year-sip-will-i-able-to-increse-the-duration-of-sip-for-next-5-years/9497/3,"Hello, 
+ Once all the installments in your MF are complete, you can re-enter the same MF at a future date. It will hold the same folio number that it had under you when you purchased it for the first time.  If you intend to change it to 5 years for the second round of investment in the same MF, you have to enter your specified details before placing your order. 
+ Here is a monthly SIP for 60 months. You can also make it weekly, every fortnight. or quarterly. 
+ 
+ image.png 756×299 15.6 KB 
+ 
+ What you can also do is update your Active SIP in the 36th month, that is at the end of the 3 year duration. You have an ‘edit’ option for this. 
+ 
+ image.png 1073×364 10.1 KB 
+ 
+ Once you hit edit, you again get to decide how you intend to design your new SIP in terms of frequency, number of installments and Installment amount. This can be changed at any point during the course of the SIP. 
+ 
+ image.png 799×337 15.2 KB",Yes ,no_answer_available,
+tradingqna:487518,tradingqna,https://tradingqna.com/t/requesting-features/178138/17,1 feature request - Is it possible to bring in XIRR calculator for F&O position?,Yes ,no_answer_available,

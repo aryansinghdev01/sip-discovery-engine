@@ -1,0 +1,8 @@
+{
+ "fingerprint": "3a503fbdb869fb4cd13c1d92df5a543523b9948101971a27ce8032803857b768",
+ "frozen_at": "2026-10-29T18:56:45.167757+00:00",
+ "filter_model": "openai/gpt-oss-20b",
+ "extract_model": "openai/gpt-oss-120b",
+ "filter_prompt_sha": "5dafb6ee0284ed2afb084c1756c3932ecfa4fb9ec6592e19feec50747d7879c2",
+ "extract_prompt_sha": "433eb63341e311c02d7f3419e0ed6cc2b0969022ee28564bc9c3fe2a1d8716a8"
+}
