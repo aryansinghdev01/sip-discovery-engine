@@ -1,5 +1,7 @@
 {
  "golden_30": {
+  "prompt": "v1",
+  "labels": "blind result",
   "is_sip_related": {
    "agree": 19,
    "n": 30,
@@ -187,10 +189,61 @@
    "disagreements": []
   }
  },
+ "retest_20": {
+  "prompt": "v2",
+  "labels": "agreement after prompt revision",
+  "is_sip_related": {
+   "agree": 17,
+   "n": 20,
+   "rate": 0.85,
+   "disagreements": [
+    {
+     "id": "play:940f6e0e-feed-453e-afdb-39e6baa426a6",
+     "source": "play",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "extracted",
+     "filter_reason": "SIP addition timing question",
+     "human_note": "",
+     "text": "No details in mutual fund. I you investment in sip when will your amount will add in portfolio"
+    },
+    {
+     "id": "play:c4564dc8-e5a0-4c01-b5de-cdb9045d0246",
+     "source": "play",
+     "human": false,
+     "model": true,
+     "model_category": "no_answer_available",
+     "model_stage": "extracted",
+     "filter_reason": "SIP debit timely",
+     "human_note": "",
+     "text": "SIP debit has never been delayed by even a single day"
+    },
+    {
+     "id": "appstore:12276619905",
+     "source": "appstore",
+     "human": true,
+     "model": false,
+     "model_category": "not_relevant",
+     "model_stage": "llm_rejected",
+     "filter_reason": "No SIP mention",
+     "human_note": "",
+     "text": "Very very slow NAV update/allotment.. Very very slow NAV update/allotment."
+    }
+   ]
+  },
+  "primary_category": {
+   "agree": 3,
+   "n": 3,
+   "rate": 1.0,
+   "disagreements": [],
+   "human_labels_outside_taxonomy": []
+  }
+ },
  "filter_leak": {
   "relevant": 0,
-  "n": 10,
-  "upper_bound_95": 0.2588655508930523
+  "n": 30,
+  "upper_bound_95": 0.09503385285530415
  },
  "quotes": {
   "exact": 16,

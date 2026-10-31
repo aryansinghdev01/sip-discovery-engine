@@ -245,7 +245,7 @@ Leaving out `mutual fund` is the riskiest of these decisions. An investor could 
 ### Design
 
 - **Golden set:** 30 investor items from the keyword-**kept** pool, stratified across sources (Play 7, App Store 7, YouTube 8, TradingQ&A 8) and sampled with seed 42. It tests the model's judgement on the candidates it actually sees. If it were sampled from the raw pool, most items would be obviously irrelevant, and agreement would look high without testing anything difficult.
-- **Recall sample:** investor items from the keyword-**rejected** pool, using the same seed and stratification. It tests whether the keyword filter discards relevant material. The first 10 items are scored here, and 20 more are being labelled.
+- **Recall sample:** investor items from the keyword-**rejected** pool, using the same seed and stratification. It tests whether the keyword filter discards relevant material. 30 items in total: 10, then 20 more, all with seed 42.
 - **Staff posts** are excluded from both samples.
 - **Order of work.** Every item was labelled by hand before the model was run on it. The prompts were tuned on a separate sample of 40 items that contains no labelled item. They were then frozen: a fingerprint of the prompts, models, settings and seed is saved in `data/processed/prompt_freeze.json`, and the scoring code refuses to run if anything has changed since. The model ran on the labelled items *after* the freeze and *before* the labels were read.
 
@@ -270,7 +270,7 @@ These criteria were used for hand-labelling. They are taken from the labeller's 
 | | Labelled set | Prompt | `is_sip_related` agreement | Category agreement |
 |---|---|---|---|---|
 | **Blind result, prompt v1** | golden 30 | v1 (`d4d008f2…`) | **63.3%** (19/30) | 63.6% (7/11) |
-| **Agreement after prompt revision** | retest 20 | v2 (`3a503fbd…`) | _pending_ | _pending_ |
+| **Agreement after prompt revision** | retest 20 | v2 (`3a503fbd…`) | **85.0%** (17/20; 95% interval 64%–95%) | 3/3. Only 3 items were marked SIP-related by both sides, too few to read |
 
 The pre-revision figure is final and was not recalculated after the revision. The golden 30 were **not** used to score prompt v2, because the revision was written after the labeller had seen the model's answers on those items. A score on them would not be blind.
 
@@ -281,11 +281,13 @@ The pre-revision figure is final and was not recalculated after the revision. Th
 | `is_sip_related` agreement, golden set | **19 / 30 (63.3%)** | 46%–78% |
 | `primary_category` agreement, on items **both** marked SIP-related | **7 / 11 (63.6%)** | 35%–85% |
 | `is_sip_related` agreement, recall sample | **10 / 10 (100%)** | |
-| Keyword-filter leak: relevant items in the rejected sample | **0 / 10** | at most **25.9%** of rejected items are relevant (one-sided upper bound) |
+| Keyword-filter leak: relevant items in the rejected sample | **0 / 30** (the first 10 plus 20 more) | at most **9.5%** of rejected items are relevant (one-sided upper bound) |
 | Quote check, 18 extracted items | 16 exact, 1 matched once spacing is normalised, **1 failed** | |
 | Invalid categories rejected | 0 | |
 
-Intervals for the agreement rates are Wilson intervals. The leak bound is an exact binomial bound. With 30 recall items, a result of 0 relevant would bound the leak rate at **9.5%**.
+Intervals for the agreement rates are Wilson intervals. The leak bound is an exact binomial bound: 0 relevant out of 30 bounds the leak rate at 9.5%. That is a bound, **not** a finding of "no leakage". The true rate could be anywhere from 0% to 9.5%.
+
+**Evidence of precision in the rejected sample.** One rejected item, `tradingqna:292833`, is the reply "Hi Akshay, Thabk you for the reply". It sits in a thread titled "Is bank mandate- iSIP required for mutual funds". The thread is about SIP mandates, but this reply carries no content of its own. The filter correctly rejected an empty reply inside a relevant thread, which is evidence of precision, not leakage. The filter judges each post on its own text, which contains no keyword, and not on the thread's title.
 
 **The leak bound is not a recall figure.** It limits the share of *rejected* items that are relevant. The rejected pool (28,346 investor items) is about eight times the size of the kept pool, so even a small leak rate would mean many relevant items were lost. A 2% leak, for example, would be about 570 items. The correct claim is "at most X% of what the filter discarded was relevant", not "the filter keeps Y% of relevant items".
 
@@ -343,6 +345,18 @@ The blind result showed that the v1 filter prompt did not match the labelling cr
 No text from the golden set was copied into the prompts. v2 was checked on the 40-item dev sample, which contains no labelled item: every quote passed the verbatim check, and pre-start items were now rejected. It was then frozen as fingerprint `3a503fbd…`. The v1 freeze record is kept as `prompt_freeze_v1_pre_revision.json`.
 
 **Post-revision score.** v2 is scored on 20 fresh items (`retest_20.csv`). They are drawn from the keyword-kept pool with seed 44, 5 per source. They exclude all 40 labelled items and the 40 dev items v2 was checked on, and they are held out of the corpus run.
+
+### Results after revision (prompt v2, fingerprint `3a503fbd…`)
+
+`is_sip_related` agreement was **17 / 20 (85.0%)**, with a 95% Wilson interval of 64%–95%. Category agreement was 3 / 3, but only 3 retest items were marked SIP-related by both sides, so that figure carries almost no information. Every disagreement:
+
+| Item | Text | Human | Model |
+|---|---|---|---|
+| play:940f6e0e | "No details in mutual fund. I you investment in sip when will your amount will add in portfolio" | yes | no (passed the filter; extraction judged it `not_relevant`) |
+| appstore:12276619905 | "Very very slow NAV update/allotment.. Very very slow NAV update/allotment." | yes | no (filter: "No SIP mention") |
+| play:c4564dc8 | "SIP debit has never been delayed by even a single day" | no | yes → `no_answer_available` |
+
+The third disagreement shows the taxonomy's known gap. The post describes a SIP that is working well, and the closed taxonomy has no label for "SIP-related, no problem". The model pushed it into the nearest failure category with low confidence instead of marking it not relevant. Posts like this inflate failure-category counts slightly. The effect is small in this corpus because public feedback is dominated by complaints, but it is a limitation of using a closed failure-mode taxonomy.
 
 ### Fill rates in the validation run
 
