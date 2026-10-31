@@ -1,5 +1,7 @@
 # Evidence Log: SIP Discovery Engine
 
+**Live app:** https://sip-discovery-engine-pyp8nq3khe2u9wivvw9kmt.streamlit.app/ · **Code:** https://github.com/aryansinghdev01/sip-discovery-engine
+
 This log records how the evidence behind the SIP discovery engine was gathered and checked: the sources and volumes, the validation against hand labels, where the model failed, and the corrections that were made. It is written for readers who were not involved in building it.
 
 > Work in progress. The sections below are completed as each stage of the pipeline runs.
