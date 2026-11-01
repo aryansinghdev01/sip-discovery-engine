@@ -73,12 +73,12 @@ st.markdown(
 b1, b2, _ = st.columns([2, 1, 3])
 b1.link_button("📄 Evidence log: sources, validation, limitations", LOG, type="primary", width="stretch")
 b2.link_button("Code on GitHub", REPO, width="stretch")
-if progress and progress.get("final_records", 0) < progress.get("target", 0) and \
-        progress.get("processed", 0) < C.CORPUS_MAX:
+if progress and progress.get("status") != "complete":
     st.warning(f"Interim data: the corpus run is still in progress "
                f"({progress['processed']} of {C.CORPUS_MAX} sampled items processed).")
 st.caption(
-    f"**{len(final)} final records** from a seeded random sample of the keyword-filtered pool. "
+    f"**{len(final)} final records** from a seeded random sample of the keyword-filtered pool "
+    f"({progress.get('processed', '?')} sampled items processed). "
     "Shares describe Indian SIP investors who post publicly. They are **not** comparisons between apps "
     "(the apps' review samples span very different periods). Staff and moderator posts are excluded from "
     f"all counts. [Evidence log]({LOG})"

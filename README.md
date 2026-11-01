@@ -10,7 +10,7 @@ The engine turns public feedback (Google Play and App Store reviews, YouTube com
 ## How to read the results
 
 - Shares describe **Indian SIP investors who post publicly**. They are not comparisons between apps: each app's review sample spans a very different period.
-- Public channels capture **app failures far better than private financial reasons**. In a primary survey, money reasons were behind 5 of 6 stopped SIPs, while affordability is under 2% of this corpus. See the divergence section of the evidence log.
+- Public channels capture **app failures far better than private financial reasons**. In a primary survey, money reasons were behind 5 of 6 stopped SIPs, while affordability is about 2% of this corpus. See the divergence section of the evidence log.
 - The LLM stages ran on a **seeded random sample** of the keyword-filtered pool (Groq free-tier limits), so every share is reported with its 95% margin of error.
 
 ## Pipeline

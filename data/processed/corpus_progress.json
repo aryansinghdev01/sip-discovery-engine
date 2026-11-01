@@ -1,14 +1,17 @@
 {
- "processed": 720,
- "final_records": 177,
+ "processed": 920,
+ "final_records": 233,
  "target": 300,
  "tokens": {
-  "openai/gpt-oss-20b": 249391,
-  "openai/gpt-oss-20b:calls": 78,
-  "openai/gpt-oss-20b:cached": 4608,
-  "openai/gpt-oss-120b": 539468,
-  "openai/gpt-oss-120b:calls": 252,
-  "openai/gpt-oss-120b:cached": 117760
+  "openai/gpt-oss-20b": 317817,
+  "openai/gpt-oss-20b:calls": 98,
+  "openai/gpt-oss-20b:cached": 5632,
+  "openai/gpt-oss-120b": 710912,
+  "openai/gpt-oss-120b:calls": 330,
+  "openai/gpt-oss-120b:cached": 130560
  },
- "updated": "2026-10-31 22:46"
+ "updated": "2026-11-01 16:49",
+ "status": "complete",
+ "stopped_early": true,
+ "note": "Stopped by choice at 920 of 1,000 sampled items (time constraints). Processing order is random, so the processed items are a random sample."
 }

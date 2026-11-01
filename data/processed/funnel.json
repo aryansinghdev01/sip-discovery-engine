@@ -46,71 +46,71 @@
   }
  },
  "sampled": {
-  "total": 720,
+  "total": 920,
   "staff_excluded": 0,
-  "investor_total": 720,
+  "investor_total": 920,
   "by_source": {
    "play": {
-    "n": 186,
-    "pct": 0.2583
+    "n": 243,
+    "pct": 0.2641
    },
    "appstore": {
-    "n": 71,
-    "pct": 0.0986
+    "n": 87,
+    "pct": 0.0946
    },
    "youtube": {
-    "n": 236,
-    "pct": 0.3278
+    "n": 313,
+    "pct": 0.3402
    },
    "tradingqna": {
-    "n": 227,
-    "pct": 0.3153
+    "n": 277,
+    "pct": 0.3011
    }
   }
  },
  "llm_kept": {
-  "total": 254,
+  "total": 333,
   "staff_excluded": 0,
-  "investor_total": 254,
+  "investor_total": 333,
   "by_source": {
    "play": {
-    "n": 68,
-    "pct": 0.2677
+    "n": 91,
+    "pct": 0.2733
    },
    "appstore": {
-    "n": 21,
-    "pct": 0.0827
+    "n": 26,
+    "pct": 0.0781
    },
    "youtube": {
-    "n": 95,
-    "pct": 0.374
+    "n": 128,
+    "pct": 0.3844
    },
    "tradingqna": {
-    "n": 70,
-    "pct": 0.2756
+    "n": 88,
+    "pct": 0.2643
    }
   }
  },
  "final_records": {
-  "total": 177,
+  "total": 233,
   "staff_excluded": 0,
-  "investor_total": 177,
+  "investor_total": 233,
   "by_source": {
    "play": {
-    "n": 62,
-    "pct": 0.3503
+    "n": 82,
+    "pct": 0.3519
    },
    "appstore": {
-    "n": 19,
-    "pct": 0.1073
+    "n": 23,
+    "pct": 0.0987
    },
    "youtube": {
-    "n": 60,
-    "pct": 0.339
+    "n": 84,
+    "pct": 0.3605
    },
    "tradingqna": {
-    "n": 36,
-    "pct": 0.2034
+    "n": 44,
+    "pct": 0.1888
    }
   }
  }

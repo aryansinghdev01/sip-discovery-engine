@@ -138,7 +138,7 @@ The corpus and the primary survey disagree sharply about **why SIPs stop**:
 
 | Source | Money-related cause |
 |---|---|
-| Public-feedback corpus | `affordability_cashflow` is **1.8%** of final records (interim figure, 169 records; ±2.0 points) |
+| Public-feedback corpus | `affordability_cashflow` is **2.1%** of final records (5 of 233; ±1.9 points) |
 | Primary survey of 21 investors | Money reasons were behind **5 of the 6** stopped SIPs |
 
 **The likely mechanism is the channel, not a contradiction.** Public review channels capture *app failures*: a broken mandate, a pause button that won't work, a confusing screen. People write to an app store or a forum when the product has failed them, and the thing that failed is what they write about. They rarely post their *private financial circumstances* in public: a job loss, a family expense, money needed elsewhere. When finances are the reason, there is usually nothing to complain about, so there is no review. This fits the sample's other known characteristics: it over-represents people who write at length about problems they can attribute to someone else.
@@ -169,17 +169,20 @@ Source composition is reported at every stage of the funnel, as counts and perce
 |---|---:|---:|---:|---:|---:|---:|
 | Raw | 32,007 | 18,000 (56.2%) | 3,500 (10.9%) | 7,734 (24.2%) | 2,773 (8.7%) | 447 |
 | Keyword-kept | 3,661 | 957 (26.1%) | 344 (9.4%) | 1,232 (33.7%) | 1,128 (30.8%) | 198 |
-| Sampled for the LLM stages | _running_ | | | | | |
-| LLM-kept | _running_ | | | | | |
-| Final records | _running_ | | | | | |
+| Sampled for the LLM stages | 920 | 243 (26.4%) | 87 (9.5%) | 313 (34.0%) | 277 (30.1%) | n/a |
+| LLM-kept (passed the filter) | 333 | 91 (27.3%) | 26 (7.8%) | 128 (38.4%) | 88 (26.4%) | n/a |
+| Final structured records | **233** | 82 (35.2%) | 23 (9.9%) | 84 (36.0%) | 44 (18.9%) | n/a |
+
+**No source passed 60% at any stage.** The largest share of the final records is YouTube's 36.0%. TradingQ&A loses the most at extraction, falling from 26.4% to 18.9%: many forum posts pass the relevance filter but turn out, on extraction, to be advice or answers rather than the writer's own SIP experience. Of the 333 items that passed the filter, extraction judged 100 not SIP-related. The second check therefore does real work.
 
 #### Why the LLM stages run on a sample
 
 Groq's free tier allows 200,000 tokens per model per day. Measured costs were about 320 tokens per item for the filter and about 2,000 per item for extraction. Processing all 3,661 kept items would take about 6 days of the filter model's budget and about 17 days of the extraction model's, which is too long for this build. So the LLM stages run on a **random sample of the keyword-kept pool**:
 
 - **Design.** 1,000 investor items are drawn from the kept pool with seed 42, split across sources in proportion to their share of the pool. They are shuffled into one seeded processing order and handled in chunks of 40. The 20 retest items are held out of the sample. The full order is saved as `data/processed/corpus_sample_ids.json`.
-- **Stopping rule.** Processing stops once **300 final records** exist. Because the order is random, whatever has been processed at any point is itself a random sample of the kept pool, so stopping early does not bias the category shares; it only widens their margins. The exact number of items processed is recorded in the funnel.
-- **Margins of error.** Every category share is reported with its 95% margin of error. With about 300 records, a category near 20% carries about ±4.5 percentage points. These margins reflect sampling only. They do not cover the model's labelling error, which is measured separately in [Validation](#validation).
+- **Stopping rule.** Processing was set to stop at 300 final records or at the end of the 1,000-item order. Because the order is random, whatever has been processed at any point is itself a random sample of the kept pool. Stopping early does not bias the category shares; it only widens their margins.
+- **What happened.** Only about 1 in 4 sampled items became a final record, so the target was reduced to about 250. The run was then **stopped by choice at 920 of 1,000 items, with 233 final records**, because of time constraints. Finishing the last 80 items would have narrowed the margin on a 20% share only from ±5.1 to about ±5.0 points.
+- **Margins of error.** Every category share is reported with its 95% margin of error. With 233 records, a category near 20% carries about ±5.1 percentage points. These margins reflect sampling only. They do not cover the model's labelling error, which is measured separately in [Validation](#validation).
 
 The raw pool is dominated by Play reviews (56.2%), because app reviews are plentiful and mostly short. The keyword filter removes most of them ("good app", "nice"), and the kept pool is spread fairly evenly across three sources. The App Store contributes least, at 9.4%. No source is close to the 60% limit after the keyword stage.
 
@@ -419,10 +422,62 @@ Two changes were made while tuning on the dev sample. Neither involved a labelle
 - **How it was found.** During the re-fetch for correction 3, one topic timed out, and its saved file turned out to be empty.
 - **The fix.** A failed download is no longer saved, so the next run retries it. The affected topic was fetched again successfully, returning 2 posts. All 400 topics are now present.
 
+## Results: where SIP continuation breaks down
+
+These are the 233 final records, investor posts only. Shares come with 95% margins of error from sampling. They describe Indian SIP investors who post publicly, and they do not compare apps.
+
+| Category | Records | Share | 95% margin | Range |
+|---|---:|---:|---:|---|
+| App mechanics | 116 | **49.8%** | ±6.4 | 43.4%–56.2% |
+| No answer available | 62 | **26.6%** | ±5.7 | 20.9%–32.3% |
+| Returns below expectation | 24 | **10.3%** | ±3.9 | 6.4%–14.2% |
+| Mandate / payment failure | 19 | **8.2%** | ±3.5 | 4.6%–11.7% |
+| Fees / trust | 7 | **3.0%** | ±2.2 | 0.8%–5.2% |
+| Affordability / cash flow | 5 | **2.1%** | ±1.9 | 0.3%–4.0% |
+
+- **The ranking of the top two is unambiguous.** App mechanics and "no answer available" together account for about three-quarters of records, and their ranges do not overlap with each other or with the categories below. Returns mismatch and mandate failure overlap, so their order is not settled. The bottom two are small and uncertain.
+- **Lifecycle stage:** ongoing 118, starting 53, stopping 28, unclear 14, stopped 13, first months 7.
+- **Stoppage type:** not applicable 160, voluntary 36, involuntary 35, passive 1, unclear 1.
+- **Went outside the app:** yes 21 (9.0%), no 211, unclear 1.
+- **Affordability** is low here because of the channel, not because affordability rarely matters. See [the divergence section](#known-divergence-from-primary-research-why-sips-stop).
+
+### Output checks on the corpus run
+
+| Check | Result |
+|---|---|
+| Evidence quotes verified verbatim, final records | **95.7%**: 214 exact, 9 matched once spacing is normalised, 10 failed (flagged and kept visible) |
+| Evidence quotes, all 333 extractions | 308 exact, 14 matched once spacing is normalised, 11 failed |
+| Invalid primary categories | **0** |
+| Invalid values for other fields, replaced with `unclear` and flagged | 10 (7 lifecycle stage, 2 stoppage type, 1 went outside app) |
+| Segment fields reset to `unknown` because the signal words were missing from the quote | 4 |
+| `is_sip_related` contradicted by the model's own category (the category was kept) | 1 |
+
 ## Where the model failed
+
+- **Before revision, it used a different definition from the labeller (v1).** It kept pre-start beginner questions as SIP-related, which the labelling criteria exclude. This accounts for most of the 63.3% blind result. See [Validation](#validation).
+- **It labelled by symptom, not cause (v1).** Payment problems caused by app faults or platform behaviour went to `mandate_payment_failure`. v2 tells it to label the cause.
+- **It forces posts with no problem into a failure category.** The taxonomy has no label for a SIP that is working fine ("SIP debit has never been delayed by even a single day" became `no_answer_available`), so these posts land in the nearest category with low confidence.
+- **It misses posts that never use the word "SIP".** "Very very slow NAV update/allotment" was rejected by the filter as "No SIP mention", but the labeller judged it relevant.
+- **Quotes.** 11 of 333 extractions (3.3%) produced a quote that was not verbatim, typically by joining two separate pieces of a long post. Every one is flagged.
+- **Schema.** No invalid category was ever produced. 10 invalid values for other fields were caught and replaced.
 
 ## Corrections to model output
 
 The 2–3 places where the model's extraction output was wrong and was corrected by hand, with the reason in each case. Errors in the pipeline itself are listed under [Methodology corrections](#methodology-corrections).
 
+_To be completed by the labeller._
+
 ## Field fill rates
+
+These are the shares of the 233 final records in which each optional field was filled. A segment field counts only if it was explicitly stated and the stated words sit inside the evidence quote.
+
+| Field | Filled | Fill rate | Most common values |
+|---|---:|---:|---|
+| start_motivation | 16 | 6.9% | specific goal 5, someone recommended 4, habit or discipline 4 |
+| checking_behaviour | 2 | 0.9% | |
+| influenced_by | 1 | 0.4% | finfluencer 1 |
+| money_source | 0 | 0.0% | |
+| segment_age_stated | 5 | 2.1% | 25 to 40: 4, under 25: 1 |
+| segment_income_stated | 1 | 0.4% | irregular 1 |
+
+**Public reviews rarely disclose income or age.** Age was stated in 2.1% of records and income in 0.4%. Every one of the six fields is below the 15% threshold, so **none of them is used for segmentation**. That is a documented limitation of public feedback, not a result. Segment differences (Q8) are covered by the primary survey data instead. The same applies to start motivation and checking behaviour (Q1 and Q4): there are too few records to quantify them, although individual records remain useful as qualitative examples.
