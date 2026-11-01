@@ -89,7 +89,7 @@ st.header("Where SIP continuation breaks down")
 cat_df = pd.DataFrame([
     {"category": CATEGORY_LABELS[c], "key": c, "records": v["n"], "share": v["pct"], "moe": v["moe"],
      "lo": max(v["pct"] - v["moe"], 0.0), "hi": min(v["pct"] + v["moe"], 1.0),
-     "label": f"{pct(v['pct'])} ±{v['moe'] * 100:.1f}",
+     "label": f"{pct(v['pct'])} ±{v['moe'] * 100:.1f}" + (" *" if c == "affordability_cashflow" else ""),
      "range": f"{pct(max(v['pct'] - v['moe'], 0))} to {pct(min(v['pct'] + v['moe'], 1))}"}
     for c, v in cats.items()
 ]).sort_values("share", ascending=False)
@@ -111,6 +111,11 @@ st.altair_chart((bars + whiskers + labels).properties(height=46 * len(cat_df)).c
                 width="stretch")
 
 aff = cats["affordability_cashflow"]
+st.markdown(
+    f"\\* **Affordability / cash flow ({pct(aff['pct'])})** is low because public reviews rarely mention "
+    f"private finances, not because money rarely matters. [Read the divergence section →]({DIVERGENCE_URL})  \n"
+    "Returns below expectation and mandate / payment failure have overlapping ranges and **are not ranked "
+    "against each other**.")
 st.info(
     f"**The corpus and primary research disagree on cause.** Here, affordability / cash flow is "
     f"**{pct(aff['pct'])}** (±{aff['moe'] * 100:.1f}) of records. In a survey of 21 investors, money "

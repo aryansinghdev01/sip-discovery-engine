@@ -435,7 +435,9 @@ These are the 233 final records, investor posts only. Shares come with 95% margi
 | Fees / trust | 7 | **3.0%** | ±2.2 | 0.8%–5.2% |
 | Affordability / cash flow | 5 | **2.1%** | ±1.9 | 0.3%–4.0% |
 
-- **The ranking of the top two is unambiguous.** App mechanics and "no answer available" together account for about three-quarters of records, and their ranges do not overlap with each other or with the categories below. Returns mismatch and mandate failure overlap, so their order is not settled. The bottom two are small and uncertain.
+- **The ranking of the top two is unambiguous.** App mechanics and "no answer available" together account for about three-quarters of records, and their ranges do not overlap with each other or with the categories below.
+- **Returns below expectation (10.3% ±3.9) and mandate / payment failure (8.2% ±3.5) cannot be separated.** Their ranges (6.4%–14.2% and 4.6%–11.7%) overlap, so this data cannot say which is larger. **They are not ranked against each other.** Both are treated as mid-sized problem areas.
+- The bottom two, fees / trust and affordability / cash flow, are small and uncertain.
 - **Lifecycle stage:** ongoing 118, starting 53, stopping 28, unclear 14, stopped 13, first months 7.
 - **Stoppage type:** not applicable 160, voluntary 36, involuntary 35, passive 1, unclear 1.
 - **Went outside the app:** yes 21 (9.0%), no 211, unclear 1.
@@ -465,7 +467,23 @@ These are the 233 final records, investor posts only. Shares come with 95% margi
 
 The 2–3 places where the model's extraction output was wrong and was corrected by hand, with the reason in each case. Errors in the pipeline itself are listed under [Methodology corrections](#methodology-corrections).
 
-_To be completed by the labeller._
+### 1. Pre-start questions wrongly kept as SIP-related
+
+- **Model output:** items such as "SIP Kaise Start Kare" and "Sip matlab" were marked SIP-related (and categorised `no_answer_available`).
+- **Correction:** not SIP-related.
+- **Reason:** the person does not hold a SIP and describes no problem with one, so there is no continuation failure to analyse. Keeping these items would have inflated `no_answer_available`, the category that carries the strongest finding of the primary research. This was the largest single source of disagreement in the v1 blind test, and it drove the prompt revision. The v1 prompt told the model to keep "starting a SIP, or why / whether to start one", which contradicted the labelling criteria. The model did what it was told; the instruction was wrong.
+
+### 2. Symptom labelled as cause
+
+- **Model output:** "SIP payment via upi app is not happening… Always some error is shown" was labelled `mandate_payment_failure`.
+- **Correction:** `app_mechanics`.
+- **Reason:** the payment system did not break; the app did, and the failed payment is the downstream effect. Labelling it a mandate failure would point the solution toward retry logic, when the actual fix is an app that works. It would also inflate a category used to size a real mechanical problem.
+
+### 3. Platform behaviour labelled as mandate failure
+
+- **Model output:** the Paytm daily-SIP review ("THEY WILL NOT INVEST FULL AMOUNT, AMOUNT DEDUCTED FROM YOUR BANK ACCOUNT WILL BE MUCH HIGHER THAN AMOUNT INVESTED") was labelled `mandate_payment_failure`, with `fees_trust` as a secondary category.
+- **Correction:** `fees_trust`.
+- **Reason:** the debit succeeded. The user is describing money going missing between the bank and the investment, and concluding that the platform is taking it. The grievance is about trust, not a broken mandate.
 
 ## Field fill rates
 
